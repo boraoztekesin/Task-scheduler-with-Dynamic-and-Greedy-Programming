@@ -18,12 +18,6 @@ public class Planner {
         this.planDynamic = new ArrayList<>();
         this.planGreedy = new ArrayList<>();
     }
-
-    /**
-     * @param index of the {@link Task}
-     * @return Returns the index of the last compatible {@link Task},
-     * returns -1 if there are no compatible {@link Task}s.
-     */
     public int binarySearch(int index) {
         int low = 0;
         int high = index - 1;
@@ -43,25 +37,13 @@ public class Planner {
 
         return result;
     }
-
-    /**
-     * {@link #compatibility} must be filled after calling this method
-     */
     public void calculateCompatibility() {
-        // YOUR CODE HERE
+        
         for (int i = 0; i < taskArray.length; i++) {
             compatibility[i] = binarySearch(i);
         }
     }
-
-    /**
-     * Uses {@link #taskArray} property
-     * This function is for generating a plan using the dynamic programming approach.
-     * @return Returns a list of planned tasks.
-     */
     public ArrayList<Task> planDynamic() {
-        // YOUR CODE HERE
-
         calculateCompatibility();
         System.out.println("Calculating max array");
         System.out.println("---------------------");
@@ -80,9 +62,6 @@ public class Planner {
 
         return planDynamic;
     }
-    /**
-     * {@link #planDynamic} must be filled after calling this method
-     */
     public void solveDynamic(int i) {
         if (i < 0) {
             return;
@@ -106,12 +85,7 @@ public class Planner {
             solveDynamic(i - 1);
         }
     }
-
-    /**
-     * {@link #maxWeight} must be filled after calling this method
-     */
     public Double calculateMaxWeight(int i) {
-        // YOUR CODE HERE
         System.out.println("Called calculateMaxWeight(" + i + ")");
         if (i < 0) {
             return 0.0;
@@ -127,14 +101,7 @@ public class Planner {
         }
         return maxWeight[i];
     }
-    /**
-     * {@link #planGreedy} must be filled after calling this method
-     * Uses {@link #taskArray} property
-     *
-     * @return Returns a list of scheduled assignments
-     */
     public ArrayList<Task> planGreedy() {
-        // YOUR CODE HERE
         System.out.println("Greedy Schedule");
         System.out.println("---------------");
         int x = 0;
