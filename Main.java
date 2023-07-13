@@ -5,11 +5,7 @@ import java.io.FileReader;
 import java.util.Arrays;
 
 public class Main {
-    /**
-     * Propogated {@link IOException} here
-     * {@link #parseJSON} method should be called here
-     * A {@link Planner} instance must be instantiated here
-     */
+   
     public static void main(String[] args) throws IOException {
        // String file = args[0];              //get file name as an argument
         String file = args[0];
@@ -25,12 +21,6 @@ public class Main {
         System.out.println();
         planner.planGreedy();
     }
-
-    /**
-     * @param filename json filename to read
-     * @return Returns a list of {@link Task}s obtained by reading the given json file
-     * @throws FileNotFoundException If the given file does not exist
-     */
     public static Task[] parseJSON(String filename) throws FileNotFoundException {
 
         /* JSON parsing operations here */
